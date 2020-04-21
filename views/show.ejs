@@ -1,0 +1,35 @@
+<%- include ('partials/header') %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= hotel.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= hotel.image %>">
+            <div class="extra content" style="float: right;">
+                <%= hotel.rating %><i class="small yellow star icon"></i>
+            </div>
+            <div class="content">
+                <span><%= hotel.place %></span>
+            </div>
+            <div class="description">
+                <p><%= hotel.body %></p>
+            </div>
+            <div class="extra content">
+                <i class="blue small fitted circular wifi icon"></i><%= hotel.amenities %>
+            </div>
+            <div class="extra content" style="float: right;">
+                <%= hotel.discount %><i class="small red percent icon">off</i>
+            </div>
+            <div class="extra content">
+                <i class="small fitted green rupee sign icon"></i><%= hotel.price %>
+            </div>
+            <br>
+            <a class="ui orange basic button" href="/hotels/<%= hotel._id %>/edit">EDIT</a>
+                
+            <form id="delete" action="/hotels/<%= hotel._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">DELETE</button>
+            </form>
+        </div>        
+    </div>
+
+<%- include ('partials/footer') %>

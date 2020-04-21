@@ -1,0 +1,37 @@
+<%- include ('partials/header') %>
+
+<div class="ui main text container">
+    <div class="ui huge header">RESTful Hotel App</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+                <% hotels.forEach(function(hotel){ %>
+                        <div class="item">
+                                <div class="ui medium rounded image">
+                                        <img src="<%= hotel.image %>">
+                                </div>
+                                <div class="content">
+                                        <a class="header" href="/hotels/<%= hotel._id %>"><%= hotel.title %></a>
+                                        <div class="right floated meta"><%= hotel.rating %><i class="small yellow star icon"></i></div>
+                                        <div class="meta">
+                                                <span><%= hotel.place %></span>
+                                        </div>
+                                        <div class="description">
+                                                <p><%= hotel.body.substring(0, 100) %>...</p>
+                                        </div>
+                                        <div class="extra content">
+                                                <span class="left floated"><i class="small fitted green rupee sign icon"></i><%= hotel.price %></span>
+                                        </div>
+                                        <div class="extra content">
+                                                <span class="left floated">Discount:<%= hotel.discount %><i class="small fitted red percent icon"></i></span>
+                                        </div>
+                                        <div class="extra content">
+                                                <a class="ui floating basic purple button right floated" href="/hotels/<%= hotel._id %>">Read More<i class="chevron circle right icon"></i></a>
+                                        </div>
+                                </div>
+                        </div>
+                <% }); %>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/footer') %>
